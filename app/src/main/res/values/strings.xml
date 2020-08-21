@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">KotlinCoroutinesFundamentals</string>
+    <string name="image_view">Image View</string>
+</resources>
