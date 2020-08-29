@@ -3,6 +3,7 @@ package com.langitpayment.kotlincoroutinesfundamentals
 import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import kotlinx.android.synthetic.main.activity_main.*
 import java.net.HttpURLConnection
@@ -14,6 +15,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         Log.d("HAI", Thread.currentThread().name)
+
+        val mainLooper = mainLooper
 
         /**
          * call into another thread
@@ -32,7 +35,7 @@ class MainActivity : AppCompatActivity() {
             /**
              * post to the main thread use
              * */
-            runOnUiThread{
+            Handler(mainLooper).post{
                 Log.d("HAI", Thread.currentThread().name)
                 image.setImageBitmap(bitmap)
             }
